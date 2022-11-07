@@ -1,0 +1,50 @@
+@model IEnumerable<DangThiAnhBTH2.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-action="Upload">Upload New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PerID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PerID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
